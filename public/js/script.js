@@ -17,8 +17,13 @@ chatForm.addEventListener("submit", (e) => {
   }
 });
 
+messageInput.addEventListener("keypress", () => {
+  socket.emit("typeing", { fullName: "سیامک باقری" });
+});
+
 // Listeneing
 socket.on("chat message", (data) => {
+  feedback.innerHTML = "آنلاین"
   chatBox.innerHTML += `
     <div class="float-start w-75">
       <div class="bg-white py-1 px-3 rounded-4">
@@ -34,4 +39,8 @@ socket.on("chat message", (data) => {
     </div>
     <br />
   `;
+});
+
+socket.on("typeing", (data) => {
+  feedback.innerHTML = `${data.fullName} در حال نوشتن...`
 });
