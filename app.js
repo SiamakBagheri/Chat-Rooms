@@ -20,6 +20,10 @@ io.on("connection", (socket) => {
   console.log("User Connected", socket.id);
 
   socket.on("disconnect", () => {
-    console.log("disconnected");
+    console.log("disconnected", socket.id);
+  });
+
+  socket.on("chat message", (data) => {
+    io.sockets.emit("chat message", data);
   });
 });
