@@ -1,0 +1,8 @@
+body {
+    font-family: Vazirmatn !important;
+    background-color: #f3f4f6;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+}
